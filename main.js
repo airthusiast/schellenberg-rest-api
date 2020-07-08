@@ -10,7 +10,18 @@ const FileSystem = require('fs');
 const Path = require("path");
 const RestAPIController = require('./controllers/RestAPIController')
 const SchellenbergAPIConnector = require('./services/SchellenbergAPIConnector')
-const config = require('./options.json');
+const args = process.argv.slice(2)
+
+// Load config from provided config file
+var configFile = args[0];
+if(typeof configFile === 'undefined') {
+    throw Error('Missing argument: Please provide JSON config filepath!');
+}
+try {
+    var config = JSON.parse(FileSystem.readFileSync(configFile));
+} catch(err) {
+    throw Error('Error loading JSON config file! ' + err);
+}
 
 // Prepare Schellenberg API config
 let myConfig = {

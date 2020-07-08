@@ -19,7 +19,7 @@ Tests have been carried out on:
   ```bash
   git clone https://github.com/airthusiast/schellenberg-rest-api.git
   ```
-- Edit the configuration file options.json
+- Copy the provided the configuration sample (config.json.sample) and change it accordingly:
   ```yaml
   {
     "connexion": {
@@ -44,7 +44,7 @@ Tests have been carried out on:
 
 - Now the Schellenberg REST API:
   ```bash
-  node main.js
+  node main.js myconfig.json
   ```
 ### Collect devices ID's
 Device ID's **are important**, they will be used to interact with the device itself.
