@@ -1,0 +1,22 @@
+{
+  "name": "schellenbergrestapi",
+  "version": "1.0.0",
+  "description": "Api for using with the Schellenberg/Enexoma/SmartFriends Smart Home Gateway",
+  "main": "main.js",
+  "author": "Airthusiast",
+  "license": "ISC",
+  "dependencies": {
+    "schellenbergapi": "git+https://github.com/airthusiast/SchellenbergApi.git#master"
+  },
+  "scripts": {
+    "start": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/airthusiast/SchellenbergApi.git"
+  },
+  "bugs": {
+    "url": "https://github.com/airthusiast/SchellenbergApi/issues"
+  },
+  "homepage": "https://github.com/airthusiast/SchellenbergApi#readme"
+}
