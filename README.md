@@ -1,4 +1,4 @@
-# Schellenberg Bridge
+# Schellenberg REST API
 
 ## Description
 This module exposes a simple REST API that can be used to control all your Schellenberg, ABUS, Paulmann, Steinel devices.
@@ -95,7 +95,7 @@ The module exposes a simple REST API, which can be called to control your device
 
 The main difference between both is that the second generation allows bidirectional communication between the roller shutter and the box. It is now possible to know the precise shutter position at any time, even if not operated via the app. As soon as the roller shutter is operated, a notification is instantly sent to the box. The Schellenberg API automatically receives the update.
 
-> **Note**: the SH1-Box does not provide this functionaliry (yet) -> Smart Friends Box is required.
+> **Note**: the SH1-Box does not provide this functionality (yet) -> Smart Friends Box is required.
 
 #### Examples on how to use the REST API
 - Open Shutter: 
