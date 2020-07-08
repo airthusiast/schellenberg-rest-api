@@ -7,6 +7,7 @@
  */
 
 const FileSystem = require('fs');
+const Path = require("path");
 const RestAPIController = require('./controllers/RestAPIController')
 const SchellenbergAPIConnector = require('./services/SchellenbergAPIConnector')
 const config = require('./options.json');
@@ -27,7 +28,7 @@ let myConfig = {
     smartSocketConfig: {
         host: config.connexion.host,
         port: config.connexion.port,
-        certificate: FileSystem.readFileSync('./certs/CA.pem')
+        certificate: FileSystem.readFileSync(Path.resolve(__dirname, "./certs/CA.pem"))
     },
     restAPIConfig: {
         port: 8181
