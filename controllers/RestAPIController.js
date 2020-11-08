@@ -11,6 +11,7 @@
 const express = require('express');
 const UnidirectionalRollingShutterService = require('../services/UnidirectionalRollingShutterService');
 const BidirectionalRollingShutterService = require('../services/BidirectionalRollingShutterService');
+const GenericDeviceService = require('../services/GenericDeviceService');
 const valueMapping = new Map([['up', 1], ['down', 2], ['stop', 0]]);
 
 class RestAPIController {
@@ -24,6 +25,7 @@ class RestAPIController {
 
         this.uniDirectionalRSService = new UnidirectionalRollingShutterService(config);
         this.biDirectionalRSService = new BidirectionalRollingShutterService(config);
+        this.genericDeviceService = new GenericDeviceService(config);
         this.port = config.restAPIConfig.port;
         
         this.startRestAPI();
@@ -88,6 +90,33 @@ class RestAPIController {
             var log;
             if(result) {
                 var log = 'Rolling Shutter SET POSITION command received for device: ' + deviceID + ' (new position => ' + position + ')';
+            } else {
+                log = 'Oups. Somesthing went wrong!';
+            }
+            console.debug(log);
+            return res.send(log);
+        });
+
+        app.get('/generic/:deviceID', (req, res) => {
+            var deviceID = parseInt(req.params.deviceID);
+            var result = this.genericDeviceService.getValue(deviceID);
+            var log;
+            if(result) {
+                var log = 'Generic device: ' + deviceID + ' (set value => ' + result + ')';
+            } else {
+                log = 'Oups. Somesthing went wrong!';
+            }
+            console.debug(log);
+            return res.send(result.toString());
+        });
+
+        app.get('/generic/:deviceID/:value', (req, res) => {
+            var deviceID = parseInt(req.params.deviceID);
+            var value = req.params.value;
+            var result = this.genericDeviceService.setValue(deviceID, value);
+            var log;
+            if(result) {
+                var log = 'Generic device: ' + deviceID + ' (set value => ' + value + ')';
             } else {
                 log = 'Oups. Somesthing went wrong!';
             }
