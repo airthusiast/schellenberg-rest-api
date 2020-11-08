@@ -114,7 +114,15 @@ The main difference between both is that the second generation allows bidirectio
   
   ```http://127.0.0.1:8181/rollingshutter/v2/getposition/22594```
 
-As it can be seen, actions are send using the device ID. 
+- Get current value of any registered device:
+  
+  ```http://127.0.0.1:8181/generic/3146```
+  
+- set current value of any registered device:
+  
+  ```http://127.0.0.1:8181/generic/3146/true```
+
+As it can be seen, actions are sent using the device ID. 
 It is mandatory to specify the version of the roller shutter (v1 or v2). 
 
 ## Authors
